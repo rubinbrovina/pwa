@@ -1,0 +1,24 @@
+::ng-deep #chart {
+    height: 440px;
+}
+.float-icon{
+    position: absolute;
+    top: 28%;
+    left: 15%;
+}
+.float-text{
+    position: absolute;
+    top: 28%;
+    right: 25%;
+}
+.text-value{
+    font-size: 2rem;
+}
+.font{
+    font-size: 1.1rem;
+}
+.filter{
+    border:1px solid red;
+    border-radius: 20px;
+    margin-bottom: 22px;
+}

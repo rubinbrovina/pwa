@@ -1,0 +1,14 @@
+
+<ag-grid-angular 
+    style="width: 100%; height: 500px;" 
+    class="ag-theme-material"
+    (rowClicked)='rowClicked($event)'
+    [rowData]="rowData" 
+    [columnDefs]="columnDefs"
+    [enableSorting]="true"
+    [enableFilter]="true"
+    [getRowNodeId]="getRowNodeId"
+    [animateRows]="true"
+    (gridReady)="onGridReady($event)"
+    >
+</ag-grid-angular>

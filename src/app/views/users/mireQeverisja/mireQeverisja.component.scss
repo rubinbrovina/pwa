@@ -1,0 +1,74 @@
+.table-curved {
+    border-collapse: separate;
+}
+.table-curved {
+    border: solid #ccc 1px;
+    border-radius: 6px;
+    border:0px;
+}
+.table-curved td, .table-curved th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+
+.table-curved th:first-child {
+    border-radius: 26px 0 0 26px;
+}
+.red{
+    background: #ea554d;
+    color: white;
+}
+.white{
+    background: white;
+}
+
+.table-curved th:only-child{
+    border-radius: 6px 6px 0 0;
+}
+
+.float-icon{
+    position: absolute;
+    top: 28%;
+    left: 15%;
+}
+.float-text{
+    position: absolute;
+    top: 28%;
+    right: 25%;
+}
+.text-value{
+    font-size: 2rem;
+}
+.head{
+    padding: 36px;
+    font-size: 1.1rem;
+}
+.font{
+    font-size: 1.1rem;
+}
+.fbshare{
+    color: #3b5998; background: white; padding: 6px;
+}
+.fblike{
+    color: #909bd1; background: white; padding: 6px;
+}
+.twshare{
+    color: #0c93ca; background: white; padding: 6px;
+}
+.twlike{
+    color: #64cdea; background: white; padding: 6px;
+}
+.whshare{
+    color: #01b59a; background: white; padding: 6px;
+}
+.inslove{
+    color: #e912a0; background: white; padding: 6px;
+}
+.comment{
+    color: orangered; background: white; border-radius: 0 26px 0 0; padding: 6px;
+}
+.filter{
+    border:1px solid red;
+    border-radius: 20px;
+    margin-bottom: 22px;
+}

@@ -1,0 +1,48 @@
+<ag-grid-angular style="width: 100%; height: 500px;" class="ag-theme-material" (rowClicked)='rowClicked($event)'
+  [rowData]="rowData" [columnDefs]="columnDefs" [enableSorting]="true" [enableFilter]="true" [getRowNodeId]="getRowNodeId"
+  [animateRows]="true" (gridReady)="onGridReady($event)">
+</ag-grid-angular>
+
+<div bsModal #editPost="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h4 id="dialog-child-name" class="modal-title pull-left">Child modal</h4> -->
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideEditPostModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4>Titulli</h4>
+        <input type="text" class="form-control" id="title" placeholder="Vendosni titullin e postimit" [(ngModel)]="specificPost.title">
+        <br>
+        <h4>Përmbajtja</h4>
+        <angular-editor [config]="editorConfig" [(ngModel)]="specificPost.body"></angular-editor>
+        <br>
+        <h4>Linku</h4>
+        <input type="text" class="form-control" id="url" placeholder="Vendosni linkun për të shpërndarë" [(ngModel)]="specificPost.shareableUrl">
+        <br>
+        <button class="btn btn-success" (click)="ruajNdryshiminSpecificPost()">Ruaj ndryshimin</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal #deletePost="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-child-name" class="modal-title pull-left">Jeni të sigurt?</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideDeletePostModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <button class="btn btn-success" (click)="deletePostim()">PO</button>
+        <button class="btn btn-danger" (click)="hideDeletePostModal()">JO</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner  bdColor="rgba(51,51,51,0)" size="medium" color="#ed1b24" type="ball-atom"></ngx-spinner>

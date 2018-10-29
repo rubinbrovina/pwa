@@ -1,0 +1,158 @@
+<div class="animated fadeIn">
+    <div class="row">
+      <div class="col-sm-4 col-lg-4 filter">
+        <br>
+        <h4 class="text-center">Filtro Raportin</h4>
+        <div class="dx-fieldset">
+          <div class="dx-field">
+            <div class="dx-field-label">Nga data</div>
+            <div class="dx-field-value">
+              <dx-date-box [showClearButton]="true" [(value)]="value1" (onValueChanged)="getFirstDate($event)" type="datetime">
+              </dx-date-box>
+            </div>
+          </div>
+          <div class="dx-field">
+            <div class="dx-field-label">Deri në datën</div>
+            <div class="dx-field-value">
+              <dx-date-box [showClearButton]="true" [(value)]="value2" (onValueChanged)="getSecondDate($event)" type="datetime">
+              </dx-date-box>
+            </div>
+          </div>
+        </div>
+        <div> 
+          </div> 
+      </div>
+      <div class="col-sm-8 col-lg-8">
+        <div class="row">
+          <div class="col-sm-6 col-lg-6">
+            <div class="card text-white bg-primary">
+              <div class="card-body pb-0">
+                <div class="float-icon">
+                  <img src="assets/imgs/share.png" alt="">
+                </div>
+                <div class="float-text">
+                  <div class="text-value text-center">{{totalShare}}</div>
+                  <div class="text-center font">Total Shares</div>
+                </div>
+              </div>
+              <div class="chart-wrapper mt-4 mx-4" style="height:120px;">
+              </div>
+            </div>
+          </div>
+          <!--/.col-->
+          <div class="col-sm-6 col-lg-6">
+            <div class="card text-white bg-info">
+              <div class="card-body pb-0">
+                <div class="float-icon">
+                  <img src="assets/imgs/like.png" alt="">
+                </div>
+                <div class="float-text">
+                  <div class="text-value text-center">{{totalLike}}</div>
+                  <div class="text-center font">Total Likes</div>
+                </div>
+              </div>
+              <div class="chart-wrapper mt-4 mx-4" style="height:120px;">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!--/.col-->
+          <div class="col-sm-6 col-lg-6">
+            <div class="card text-white bg-warning">
+              <div class="card-body pb-0">
+                <div class="float-icon">
+                  <img src="assets/imgs/comment.png" alt="">
+                </div>
+                <div class="float-text">
+                  <div class="text-value text-center">{{totalComment}}</div>
+                  <div class="text-center font">Total Komente</div>
+                </div>
+              </div>
+              <div class="chart-wrapper mt-4" style="height:120px;">
+              </div>
+            </div>
+          </div>
+          <!--/.col-->
+          <div class="col-sm-6 col-lg-6">
+            <div class="card text-white bg-danger">
+              <div class="card-body pb-0">
+                <div class="float-icon">
+                  <img src="assets/imgs/user.png" alt="">
+                </div>
+                <div class="float-text">
+                  <div class="text-value text-center">{{totalUsers}}</div>
+                  <div class="text-center font">Total Users</div>
+                </div>
+              </div>
+              <div class="chart-wrapper mt-4 mx-4" style="height:120px;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+    <!--/.row-->
+    <div class="row" id="contentToConvert">
+      <table class="
+      table 
+      table-curved 
+      table-responsive-sm 
+      table-responsive-md 
+      table-responsive-lg 
+      table-responsive-xl">
+  
+        <colgroup span="2"></colgroup>
+        <colgroup span="2"></colgroup>
+        <thead>
+          <tr>
+            <th rowspan="2" scope="rowgroup" class="white head text-center"><a class="btn btn-warning" (click)="captureScreen()"><i class="fa fa-print" aria-hidden="true"></i></a> Gjeneroni raportin</th>
+            <th scope="colgroup" class="fbshare text-center"><img src="assets/img/facebook.png" width="30px;" height="30px;"
+                alt=""> Facebook Shares</th>
+            <th scope="colgroup" class="fblike text-center"><img src="assets/img/fblike.png" width="30px;" height="30px;"
+                alt=""> Facebook Likes</th>
+            <th scope="colgroup" class="twshare text-center"><img src="assets/img/twitter.png" width="30px;" height="30px;"
+                alt=""> Twitter Shares</th>
+            <th scope="colgroup" class="twlike text-center"><img src="assets/imgs/twitter-like.png" width="30px;" height="30px;"
+                alt=""> Twitter Likes</th>
+            <th scope="colgroup" class="whshare text-center"><img src="assets/img/whatsapp.png" width="30px;" height="30px;"
+                alt=""> Whatsapp Shares</th>
+            <th scope="colgroup" class="inslove text-center"><img src="assets/img/insta.png" width="30px;" height="30px;"
+                alt=""> Instagram Likes</th>
+            <th scope="colgroup" class="comment text-center"><img src="assets/img/comment.png" width="30px;" height="30px;"
+                alt=""> Komente</th>
+          </tr>
+          <tr>
+            <th scope="colgroup" class="text-center" style="background: #3b5998; color: white; padding: 0.4rem;"> TOTAL<br>
+              {{fbShare}}</th>
+            <th scope="col" class="text-center" style="background: #909bd1; color: white; padding: 0.4rem;"> TOTAL<br>
+              {{fbLike}} </th>
+            <th scope="col" class="text-center" style="background: #0c93ca; color: white; padding: 0.4rem;">TOTAL<br>
+              {{twShare}} </th>
+            <th scope="col" class="text-center" style="background: #64cdea; color: white; padding: 0.4rem;">TOTAL<br>
+              {{twLike}} </th>
+            <th scope="col" class="text-center" style="background: #01b59a; color: white; padding: 0.4rem;">TOTAL<br>
+              {{whShare}} </th>
+            <th scope="col" class="text-center" style="background: #e912a0; color: white; padding: 0.4rem;">TOTAL<br>
+              {{insLove}} </th>
+            <th scope="col" class="text-center" style="background: orangered; color: white; padding: 0.4rem;">TOTAL<br>
+              {{totalComment}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="white text-center">FRESSH Users</th>
+            <td class="white text-center">{{fbShare}}</td>
+            <td class="white text-center">{{fbLike}}</td>
+            <td class="white text-center">{{twShare}}</td>
+            <td class="white text-center">{{twLike}}</td>
+            <td class="white text-center">{{whShare}}</td>
+            <td class="white text-center">{{insLove}}</td>
+            <td class="white text-center">{{totalComment}}</td>
+          </tr>  
+        </tbody>
+      </table>
+    </div>
+  </div>

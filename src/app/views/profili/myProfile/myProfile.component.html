@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3">
+      <div class="card">
+        <label for="file-input" class="ngarkoFoto"><i class="fa fa-camera fa-2x"></i>
+          <input id="file-input" type="file" (change)="readUrl($event)" />
+        </label>
+        <img class="card-img-top imazhiProfilit" [src]="url">
+        <div class="card-body text-center">
+          <h5><b>{{User.name}}</b></h5>
+        </div>
+      </div>
+      <button class="btn btn-success" (click)="openChangePassword()"> Ndrysho passwordin </button>
+    </div>
+    <div class="col-md-9">
+      <tabset [justified]="true">
+        <tab heading="TË DHËNAT E MIA PERSONALE">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="name">Emri</label>
+                <input [(ngModel)]="User.name" type="text" class="form-control" id="name">
+              </div>
+              <div class="col-md-6">
+                <label for="surname">Username</label>
+                <input [(ngModel)]="User.username" type="text" class="form-control" id="username">
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="email">Email</label>
+                <input [(ngModel)]="User.email" type="email" class="form-control" id="email">
+              </div>
+              <div class="col-md-6">
+                <label for="telephone">Numri i telefonit</label>
+                <input [(ngModel)]="User.tel" type="tel" class="form-control" id="telephone">
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="qark">Qark</label>
+                <select [(ngModel)]="User.qarku" class="form-control" id="qark" (change)="onChange($event.target.value)">
+                  <option [value]="'E papërcaktuar'" disabled selected>Qarku</option>
+                  <option *ngFor="let qarku of Qarqet" [value]="qarku.qarku">{{qarku.qarku}}</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="bashkia">Bashkia</label>
+                <select [(ngModel)]="User.bashkia" class="form-control" id="bashkia">
+                  <option [value]="'E papërcaktuar'" disabled selected>Bashkia</option>
+                  <option *ngFor="let bashkia of Bashkite" [value]="bashkia.bashkia">{{bashkia.bashkia}}</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <!-- <div class="col-md-6">
+              <label for="gender">Gjinia</label>
+              <input [(ngModel)]="User.sex" type="text" class="form-control" id="gender">
+              </div> -->
+              <div class="col-md-6">
+                <label for="birthday">Ditëlindja</label>
+                <input [(ngModel)]="User.birthdate" type="text" class="form-control" id="birthday">
+              </div>
+            </div>
+            <br>
+            <button class="btn btn-success" (click)="ruajNdryshimetProfiliIm()">Ruaj ndryshimet</button>
+          </div>
+        </tab>
+        <!-- <tab heading="MEDIA IME SOCIALE">Short Labeled Justified content</tab>
+        <tab heading="ANGAZHIMI IM POLITIK">Long Labeled Justified content</tab> -->
+      </tabset>
+    </div>
+  </div>
+</div>
+
+<div bsModal #changePassword="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-child-name" class="modal-title pull-left">Ndrysho passwordin</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideChangePasswordModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="changePasswordForm" (ngSubmit)="changeOldPassword()">
+          <label for="passworldOld">Password i vjetër</label>
+          <input type="password" id="passworldOld" class="form-control" formControlName="passworldOld">
+          <br>
+          <label for="passworldNew">Password i ri</label>
+          <input type="password" id="passworldNew" class="form-control" formControlName="passworldNew" #passworldNew>
+          <br>
+          <label for="passworldNewRepeat">Përsërisni passwordin e ri</label>
+          <input type="password" id="passworldNewRepeat" class="form-control" formControlName="passworldNewRepeat"
+            #passworldNewRepeat>
+          <br>
+          <p style="color:red" *ngIf="passworldNew.value != passworldNewRepeat.value">Password i ri nuk përputhet</p>
+          <button [disabled]="!changePasswordForm.valid" class="btn btn-success" type="submit">Ruaj passwordin</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner bdColor="rgba(51,51,51,0)" size="medium" color="#ed1b24" type="ball-atom"></ngx-spinner>

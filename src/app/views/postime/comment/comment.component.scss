@@ -1,0 +1,54 @@
+.card{
+    border-width: 3px;
+    border-radius: 25px;
+    border-color: #EE3D45;
+    height:80px;
+}
+
+.ikonatFacebookTwitter{
+    margin-right: 13px;
+    margin-bottom: 10px;
+}
+
+.card-header{
+    border-radius: 22px;
+    height: 94px;
+    padding: 0px;
+}
+.imazhiPostimit{
+    width: 74px;
+    height: 74px;
+    border-bottom-left-radius: 22px;
+    border-top-left-radius: 22px;
+}
+.date {
+    position: absolute;
+    bottom: -16px;
+    left: 98px;
+    font-size: 12px;
+}
+.pagination > li > a
+{
+    background-color: white;
+    color: purple;
+}
+.overlay-middle{
+    left: 80px;
+    position: absolute;
+    top: 10px;
+}
+.overlay {
+    position: absolute;
+    color: #eee;
+    bottom: 0px; 
+    right: 0px;
+}
+@media screen and (max-width: 600px){
+    .ikonatFacebookTwitter{
+        width: 15px;
+        height: auto;
+    }
+    .card-title{
+        font-size: 12px;
+    }
+}

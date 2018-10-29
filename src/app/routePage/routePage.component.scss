@@ -1,0 +1,55 @@
+#logo{
+    height: 60px;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 60px;
+}
+.checkbox {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 15px;
+    margin-top: 10px;
+}
+.center1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 60px;
+}
+.buton-click{
+    margin-top: 20px; 
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 2px solid red;
+    border-radius: 14px;
+}
+::ng-deep body{
+background-color: #fefcff !important;
+}
+.height100
+  {
+  height: 100%;
+ overflow:hidden;
+ }
+
+ .overlay {
+    position: absolute;
+    color: #eee;
+    bottom: 0px;
+    top: 172px;
+    left: 81px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    right: 15px;
+    padding: 12px 21px;
+    background-image: linear-gradient(to right, transparent 0, rgba(0, 0, 0, 0.2) 100%);
+ }
+    .imazhi {
+        padding-top: 30px;
+        width: 100%
+    }

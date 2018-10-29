@@ -1,0 +1,51 @@
+<header class="app-header navbar" style="background: red; height: 80px;">
+  <a class="navbar-brand">
+    <img class="navbar-brand-full" src="assets/imgs/logo-white.png" width="60" height="60">
+  </a>
+</header>
+<div class="app-body" style="padding-top: 10px; margin: 0; background: #fefcff">
+  <main class="main d-flex align-items-center" style="margin: 0 !important;">
+    <div class="container height100">
+      <div style="margin-bottom:35px;"></div>
+      <div class="row">
+        <div class="col-md-4 mx-auto" *ngIf="showRoomPS">
+          <img class="center" src="assets/imgs/faqe-kryesore-03.png" alt="">
+          <img class="checkbox" src="assets/imgs/faqe-kryesore-09.png" alt="">
+          <button (click)="goToRoomPartia()" class="btn buton-click">PS</button>
+          <img src="assets/imgs/ps.png" class="imazhi" alt="">
+          <div class="overlay">
+            <p style="padding-top: 24px;">Je anëtar i Partisë Socialiste? Beson në punën që kemi bërë së bashku në gjithë Shqipërinë?
+                Bashkohu me ne, për të ndarë eksperiencat e tua në kuadër të përmirësimit tonë të mëtejshëm. 
+                Bashkohu me ne, për të njohur të gjithë me të cilët ndan të njëjtat ideale nga çdo cep i Shqipërisë.
+              </p>
+          </div>
+          <!-- <img src="assets/imgs/faqe-kryesore-06.png" style=" margin-top: 30px; height: 20%;" alt=""> -->
+        </div>
+        <div class="col-md-4 mx-auto" *ngIf="showRoomGOV">
+          <img class="center" src="assets/imgs/faqe-kryesore-04.png">
+          <img class="checkbox" src="assets/imgs/faqe-kryesore-09.png">
+          <button (click)="goToRoomQeveria()" class="btn buton-click">Mirëqeverisja</button>
+          <img src="assets/imgs/gov.png" class="imazhi" alt="">
+          <div class="overlay">
+            <p style="padding-top:45px;">Je pjesë e një pune të palodhur që kemi realizur së bashku, je pjesë e ndryshimeve që kemi sjellë, 
+              je ndeshur me shumë për të mbrojtur nismat dhe reformat që kemi ndërmarrë? Bashkohu me ne!</p>
+          </div>
+          <!--  <img src="assets/imgs/faqe-kryesore-07.png" style=" margin-top: 30px; height: 20%;" alt=""> -->
+        </div>
+        <div class="col-md-4 mx-auto" *ngIf="showRoomFRESH">
+          <img class="center1" src="assets/imgs/fresh.png" alt="">
+          <img class="checkbox" src="assets/imgs/faqe-kryesore-09.png" alt="">
+          <button (click)="goToRoomFresh()" class="btn buton-click">FRESSH</button>
+          <img src="assets/imgs/fressh.png" class="imazhi" alt="">
+          <div class="overlay">
+            <p style="padding-top: 35px;
+            padding-left: 11px;
+        ">Je i ri apo e re që beson në punën që po bëhet për ta transformuar këtë vend që ti të kesh një të ardhme më të mirë? 
+        Ke energji, vizion dhe dëshirë të bëhesh pjesë e kësaj pune kolosale? Bashkohu me ne!</p>
+          </div>
+          <!-- <img src="assets/imgs/faqe-kryesore-08.png" style=" margin-top: 30px; height: 20%;" alt=""> -->
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

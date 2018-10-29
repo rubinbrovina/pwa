@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="card" *ngFor="let any of returnedArray" style="border-left: 2px solid red; box-shadow: 2px 2px #888888;">
+    <div class="body">
+      <div class="row">
+        <div class="col-md-1">
+          <img src="assets/img/facebook.png" *ngIf="any?.tipi == 1" width="50px" alt="" style="padding: 8px 4px;">
+          <img src="assets/img/twitter.png" *ngIf="any?.tipi == 2" width="50px" alt="" style="padding: 8px 4px;">
+          <img src="assets/img/whatsapp.png" *ngIf="any?.tipi == 3" width="50px" alt="" style="padding: 8px 4px;">
+          <img src="assets/img/insta.png" *ngIf="any?.tipi == 4" width="50px" alt="" style="padding: 8px 4px;">
+          <img src="assets/imgs/twitter-like.png" *ngIf="any?.tipi == 5" width="50px" alt="" style="padding: 8px 4px;">
+          <img src="assets/img/fblike.png" *ngIf="any?.tipi == 6" width="50px" alt="" style="padding: 8px 4px;">
+          <img src="assets/img/comment.png" *ngIf="any?.tipi == 7" width="50px" alt="" style="padding: 8px 4px;">
+          <img src="assets/img/login.png" *ngIf="any?.tipi == 8" width="50px" alt="" style="padding: 8px 4px;">
+        </div>
+        <div class="col md-11" style="margin-top: 10px;">
+            <div *ngIf="any?.tipi == 4 || any?.tipi == 5 || any?.tipi == 6">
+                <a href="https://facebook.com" >{{User?.name}}</a><span> Ka bërë like postimin</span> <a href="https://localhost/#/postime/shperndaj/{{any?.post?.uuid}}"><p>{{any?.post?.title}}</p> </a>
+                <div class="overlay">
+                  <p><i class="icon-clock"></i> {{any?.datetime | date: 'short'}}</p>
+                </div>
+            </div>
+          <div *ngIf="any?.tipi == 1 || any?.tipi == 2 || any?.tipi == 3">
+              <a href="https://facebook.com" >{{User?.name}}</a><span> Ka bërë share postimin</span> <a href="https://localhost/#/postime/shperndaj/{{any?.post?.uuid}}"><p>{{any?.post?.title}}</p> </a>
+              <div class="overlay">
+                  <p><i class="icon-clock"></i> {{any?.datetime | date: 'short'}}</p>
+                </div>
+          </div>
+          <div *ngIf="any?.tipi == 7">
+              <a href="https://facebook.com" >{{User?.name}}</a><span> Ka komentuar në postimin</span> <a href="https://localhost/#/postime/lexo&komento/{{any?.post[0]?.uuid}}"><p>{{any?.post[0]?.title}}</p> </a>
+              <div class="overlay">
+                  <p><i class="icon-clock"></i> {{any?.datetime | date: 'short'}}</p>
+                </div>
+          </div>
+          <div *ngIf="any?.tipi == 8">
+              <a href="https://facebook.com" >{{User?.name}}</a><span> Është loguar në sistem</span> 
+              <div class="overlay">
+                  <p><i class="icon-clock"></i> {{any?.datetime | date: 'short'}}</p>
+                </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+  
+  </div>
+  <div class="row justify-content-md-center">
+      <pagination [boundaryLinks]="true" [totalItems]="sortedArray?.length" (pageChanged)="pageChanged($event)" previousText="&lsaquo;"
+        nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+      </pagination>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+<div class="animated fadeIn">
+  <form [formGroup]="sendShareableForm" (ngSubmit)="publiko()">
+    <div class="row">
+      <div class="col-sm-9 col-md-9 col-xs-9 col-lg-9">
+        <h3>Postim i ri</h3>
+        <p>Tipi: Shpërndaj</p>
+
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+                    <div class="form-group">
+                      <h4>Titulli</h4>
+                      <input type="text" class="form-control" id="body" placeholder="Vendosni titullin e postimit"
+                        formControlName="title">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <h4>Përmbajtja</h4>
+                <angular-editor [config]="editorConfig" formControlName="content"></angular-editor>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <h4>Linku</h4>
+                <input type="text" class="form-control" id="url" placeholder="Vendosni linkun për të shpërndarë" formControlName="link">
+                <br>
+                <input type="url" class="form-control url inputeKomento" placeholder="URL Twitter" formControlName="twiterLoveUrl">
+                <br>
+                <input type="url" class="form-control url inputeKomento" placeholder="URL Instagram" formControlName="instaLoveUrl">
+                <br>
+                <input type="url" class="form-control url inputeKomento" placeholder="URL Facebook" formControlName="fbLikeUrl">
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+            <div class="top36"></div>
+            <div class="card">
+              <div class="card-header">
+                <strong>Publiko</strong>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                    <p><b>Statusi: </b>I Publikuar</p>
+                    <p><b>Publikuar më: </b>25.08.2018</p>
+                  </div>
+                </div>
+                <div style="border-top: 1px solid #c8ced3; margin-bottom:5px; "></div>
+                <div class="row">
+                  <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6" tooltip="Plotësoni te gjitha fushat përpara publikimit">
+                    <button type="submit" class="btn btn-success btn-sm" [disabled]="!sendShareableForm.valid">Publiko</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <strong>Tipi i postimit</strong>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="b1705af0-c7c7-11e8-85a9-0242ac110002"
+                      formControlName="PS">
+                    <label class="form-check-label" for="inlineCheckbox1">PS</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="ad702f70-c7c7-11e8-85a9-0242ac110002"
+                      formControlName="FRESH">
+                    <label class="form-check-label" for="inlineCheckbox2">FRESH</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="f23af4e0-c719-11e8-85a9-0242ac110002"
+                      formControlName="QEVERI">
+                    <label class="form-check-label" for="inlineCheckbox3">QEVERI</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <strong>Ngarko Foto</strong>
+                <button style="float: right;" *ngIf="showUrl" (click)="hiqFoto($e)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                <label for="file-input" *ngIf="!showUrl" class="btn btn-primary" style="float: right;"><i class="fa fa-upload"></i>
+                  <input id="file-input" type="file" formControlName="image" (change)="readUrl($event)" />
+                </label>
+              </div>
+              <div class="card-body" *ngIf="showUrl">
+                <img [src]="url" style="width:250px;height:180px;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<ngx-spinner bdColor="rgba(51,51,51,0)" size="medium" color="#ed1b24" type="ball-atom"></ngx-spinner>

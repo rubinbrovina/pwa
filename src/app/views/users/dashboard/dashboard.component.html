@@ -1,0 +1,210 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-4 col-lg-4 filter">
+      <br>
+      <h4 class="text-center">Filtro Raportin</h4>
+
+      <div class="dx-fieldset">
+        <div class="dx-field">
+          <div class="dx-field-label">Nga data</div>
+          <div class="dx-field-value">
+            <dx-date-box [showClearButton]="true" [(value)]="value1" (onValueChanged)="getFirstDate($event)" type="datetime">
+            </dx-date-box>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Deri në datën</div>
+          <div class="dx-field-value">
+            <dx-date-box [showClearButton]="true" [(value)]="value2" (onValueChanged)="getSecondDate($event)" type="datetime">
+            </dx-date-box>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    
+      <div class="col-sm-8 col-lg-8">
+        <div class="row">
+          <div class="col-sm-6 col-lg-6">
+              <div class="card text-white bg-primary">
+                <div class="card-body pb-0">
+                  <div class="float-icon">
+                    <img src="assets/imgs/share.png" alt="">
+                  </div>
+                  <div class="float-text">
+                  <div class="text-value text-center">{{totalShare}}</div>
+                  <div class="text-center font">Total Shares</div>
+                </div>
+                </div>
+                <div class="chart-wrapper mt-4 mx-4" style="height:120px;">
+                </div>
+              </div>
+            </div>
+            <!--/.col-->
+            <div class="col-sm-6 col-lg-6">
+              <div class="card text-white bg-info">
+                <div class="card-body pb-0">
+                  <div class="float-icon">
+                    <img src="assets/imgs/like.png" alt="">
+                  </div>
+                  <div class="float-text">
+                  <div class="text-value text-center">{{totalLike}}</div>
+                  <div class="text-center font">Total Likes</div>
+                </div>
+                </div>
+                <div class="chart-wrapper mt-4 mx-4" style="height:120px;">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+              
+              <div class="col-sm-6 col-lg-6">
+                <div class="card text-white bg-warning">
+                  <div class="card-body pb-0">
+                    <div class="float-icon">
+                      <img src="assets/imgs/comment.png" alt="">
+                    </div>
+                    <div class="float-text">
+                      <div class="text-value text-center">{{totalComment}}</div>
+                      <div class="text-center font">Total Komente</div>
+                    </div>
+                  </div>
+                  <div class="chart-wrapper mt-4" style="height:120px;">
+          
+                  </div>
+                </div>
+              </div>
+              <!--/.col-->
+              <div class="col-sm-6 col-lg-6">
+                <div class="card text-white bg-danger">
+                  <div class="card-body pb-0">
+                    <div class="float-icon">
+                      <img src="assets/imgs/user.png" alt="">
+                    </div>
+                    <div class="float-text">
+                    <div class="text-value text-center">{{totalUsers}}</div>
+                    <div class="text-center font">Total Users</div>
+                  </div>
+                  </div>
+                  <div class="chart-wrapper mt-4 mx-4" style="height:120px;">
+          
+                  </div>
+                </div>
+              </div>
+              <!--/.col-->
+            </div>
+      </div>
+    
+    
+  </div>
+  <!--/.col-->
+  
+  <!--/.row-->
+
+  <!--/.card-->
+  <div class="row">
+    <div class="col-sm-6 col-lg-6">
+      <div class="brand-card">
+        <div class="brand-card-header bg-facebook">
+          <i class="fa fa-facebook"></i>
+          <div class="chart-wrapper">
+
+          </div>
+        </div>
+        <div class="brand-card-body">
+          <dx-chart id="chart" [customizePoint]="customizePoint" title="Facebook Shares & Likes" [dataSource]="data">
+            <dxi-series valueField="fbShare" name="FB Shares" color="#444e93"></dxi-series>
+            <dxi-series valueField="fbLike" name="FB Likes" color="#909bd1"></dxi-series>
+            <dxo-common-series-settings argumentField="dhoma" type="stackedBar">
+            </dxo-common-series-settings>
+            <dxo-tooltip [enabled]="true">
+            </dxo-tooltip>
+            <dxo-export [enabled]="true"></dxo-export>
+          </dx-chart>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+    <div class="col-sm-6 col-lg-6">
+      <div class="brand-card">
+        <div class="brand-card-header bg-twitter">
+          <i class="fa fa-twitter"></i>
+          <div class="chart-wrapper">
+
+          </div>
+        </div>
+        <div class="brand-card-body">
+          <dx-chart id="chart" [customizePoint]="customizePoint" title="Twitter Shares & Likes" [dataSource]="data">
+            <dxi-series valueField="twShare" name="Twitter Shares" color="#0c93ca"></dxi-series>
+            <dxi-series valueField="twLike" name="Twitter Likes" color="#64cdea"></dxi-series>
+            <dxo-common-series-settings argumentField="dhoma" type="stackedBar">
+            </dxo-common-series-settings>
+            <dxo-export [enabled]="true"></dxo-export>
+            <dxo-tooltip [enabled]="true">
+            </dxo-tooltip>
+          </dx-chart>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-lg-4">
+      <div class="brand-card">
+        <div class="brand-card-header" style="background-image: linear-gradient(to right top, #e73f5e, #e32474, #d60d8d, #be16a8, #972dc2);">
+          <i class="fa fa-instagram"></i>
+          <div class="chart-wrapper">
+
+          </div>
+        </div>
+        <div class="brand-card-body">
+          <dx-chart id="chart" [dataSource]="data" [customizePoint]="customizePoint">
+            <dxi-series argumentField="dhoma" valueField="insLove" name="Insta Loves" type="bar" color="#e912a0">
+            </dxi-series>
+            <dxo-tooltip [enabled]="true">
+            </dxo-tooltip>
+          </dx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-lg-4">
+      <div class="brand-card">
+        <div class="brand-card-header" style="background: #01b59a">
+          <i class="fa fa-whatsapp"></i>
+          <div class="chart-wrapper">
+
+          </div>
+        </div>
+        <div class="brand-card-body">
+          <dx-chart id="chart" [dataSource]="data" [customizePoint]="customizePoint">
+            <dxi-series argumentField="dhoma" valueField="whShare" name="Whatsapp Shares" type="bar" color="#01b59a">
+            </dxi-series>
+            <dxo-tooltip [enabled]="true">
+            </dxo-tooltip>
+          </dx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-lg-4">
+      <div class="brand-card">
+        <div class="brand-card-header" style="background: #ff7374">
+          <i class="fa fa-comment"></i>
+          <div class="chart-wrapper">
+
+          </div>
+        </div>
+        <div class="brand-card-body">
+          <dx-chart id="chart" [dataSource]="data" [customizePoint]="customizePoint">
+            <dxi-series argumentField="dhoma" valueField="comments" name="Komente" type="bar" color="#ff7374">
+            </dxi-series>
+            <dxo-tooltip [enabled]="true">
+            </dxo-tooltip>
+          </dx-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/.row-->

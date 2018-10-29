@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <img class="card-img-top imazhiPostimit" src="{{baseUrl}}download/{{postimi?.featuredImageUUID}}">
+        <h3 class="pakHapsire">{{postimi?.title}}</h3>
+        <p class="pakHapsire" [innerHTML]="postimi?.body | keepHtml"></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card shtoDheKomento" style="width: 18rem;">
+            <div class="card-body">
+              <form [formGroup]="shtoDheKomentoForm" (ngSubmit)="dergoLexoDheKomento()">
+                <h6 class="card-title" style="color:#EE1B21;"><b>SHTO DHE KOMENTO</b></h6>
+                <p class="card-subtitle mb-2 text-muted">Udhëzim: Mundohu të komentosh brënda 24 orëshit të parë të
+                  publikimit</p>
+                <br>
+                <input type="text" class="form-control inputeKomento" placeholder="Nickname" formControlName="nickname">
+                <br>
+                <textarea class="form-control inputeKomento" rows="7" placeholder="Koment" formControlName="koment"></textarea>
+                <br>
+                <button class="btn shtoKomentin" type="submit" [disabled]="!shtoDheKomentoForm.valid">SHTO KOMENTIN</button>
+                <a  style="margin-left: 20px;border-radius: 20px;" class="btn btn-success" href="{{postimi?.shareableUrl}}">URL</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

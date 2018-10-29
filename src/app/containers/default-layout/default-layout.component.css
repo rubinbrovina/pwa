@@ -1,0 +1,34 @@
+app-header {
+    position: relative;
+    flex-direction: row;
+    height: 55px;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid #c8ced3;
+    z-index: 9999;
+}
+
+
+::ng-deep .app-header {
+background-color: #ed1b24 !important;
+height: 80px;
+}
+::ng-deep .app-body {
+    margin-top: 80px !important;
+}
+::ng-deep .sidebar .nav-link .nav-icon{
+color: white;
+}
+
+::ng-deep .sidebar .nav{
+background: #af141a;
+}
+
+::ng-deep .sidebar .sidebar-minimizer {
+    flex: 0 0 80px !important;
+    background: #d43f3f !important;
+}
+
+::ng-deep .sidebar .nav-link.active {
+    background: #f12325 !important;
+}

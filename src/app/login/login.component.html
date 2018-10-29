@@ -1,0 +1,49 @@
+<ngx-spinner bdColor="rgba(51,51,51,0)" size="medium" color="#ed1b24" type="ball-atom"></ngx-spinner>
+<div class="app-body" style="background: #f3eafd;">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+            <form  #loginForm="ngForm" class="navbar-form navbar-right" method="POST" (ngSubmit)="login()">
+          <div class="card-group" style="border: 3px solid #ed1c24;border-radius: 5px;">
+            <div class="card p-4"  style="background: #f3eafd">
+              <div class="card-body"  >
+                <img src="assets/imgs/login-01.png" class="center"  alt="">
+                <div style="margin-bottom: 30px;"></div>
+                <div class="input-group mb-3">
+                  
+                  <input type="text" #username="ngModel" [(ngModel)]="model.username" required name="username" id="username" class="form-control" placeholder="Username">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-user"></i></span>
+                    </div>
+                </div>
+                <div class="input-group mb-4">
+                
+                  <input type="password" #password="ngModel" [(ngModel)]="model.password" required name="password" id="password" class="form-control" placeholder="Password">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-lock"></i></span>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <button type="submit" id="submit" style="width: 100%" [disabled]="!loginForm.valid" class="btn btn-primary px-4">Login</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card text-white py-5 d-md-down-none" style="width:44%; border: #a596fc;background: #b2191c">
+              <div class="card-body text-center" id="teksti">
+               
+                    
+                    <h5>Bashkohu me komunitetin që  do të ndërtojë të ardhmen e Shqipërisë. </h5>           
+                    <h4>BASHKOHU ME NE!</h4>
+              </div>
+            </div>
+          </div>
+            </form>
+        </div>
+     
+      </div>
+    </div>
+  </main>
+</div>

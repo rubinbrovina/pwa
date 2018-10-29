@@ -1,0 +1,168 @@
+.card{
+    border-width: 3px;
+    border-radius: 25px;
+    border-color: #EE3D45;
+    height:80px;
+}
+
+.ikonatFacebookTwitter{
+    z-index: 1000;
+    margin-right: 13px;
+    margin-bottom: 10px;
+    width: 25px;
+    height: 25px;
+}
+.date {
+    position: absolute;
+    bottom: -16px;
+    left: 98px;
+    font-size: 12px;
+}
+.card-header{
+    border-radius: 22px;
+    height: 94px;
+    padding: 0px;
+}
+
+.imazhiPostimit{
+    width: 74px;
+    height: 74px;
+    border-bottom-left-radius: 22px;
+    border-top-left-radius: 22px;
+}
+.overlay {
+    position: absolute;
+    color: #eee;
+    bottom: 0px; 
+    right: 0px;
+}
+.overlay-middle{
+    left: 100px;
+    position: absolute;
+    top: 10px;
+}
+
+.pagination > li > a
+{
+    background-color: white;
+    color: purple;
+}
+.modal-body {
+    position: relative;
+    padding: 15px;
+}
+::ng-deep .modal-content {
+    text-align: center;
+    width: 93%;
+}
+.facebook-login-button-no-bg {
+    background: url("../../../../assets/img/facebook-icon.png") 4px center no-repeat;
+    border: 2px solid #de4b39;
+    border-radius: 4px;
+    color: #3b5999;
+    padding: 6px 32px;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+    /* float: left; */
+    text-indent: 12px;
+    cursor: pointer;
+}
+.modal-content .facebook-login-button-no-bg {
+    margin-right: 10px;
+}
+ .google-login-button-no-bg {
+    margin-left: 0;
+}
+.fancy {
+    display: inline-block;
+    text-align: center
+}
+.box-margin .no-account {
+    margin-top: 15px;
+}
+.fancy span {
+    display: inline-block;
+    position: relative;
+    margin: 40px 0 0 0;
+    text-align: center
+}
+
+.fancy span:before
+{
+    right: 100%;
+    margin-right: 15px;
+    content: "";
+    position: absolute;
+    border-top: 1px solid #ebebeb;
+    top: 10px;
+    width: 185px;
+}
+.fancy span:after
+{
+    left: 100%;
+    margin-left: 15px;
+    content: "";
+    position: absolute;
+    border-top: 1px solid #ebebeb;
+    top: 10px;
+    width: 185px;
+}
+
+.fancy p {
+    text-align: center
+}
+
+.google-login-button-no-bg {
+    background: url(../../../../assets/img/google-icon.png) 7px center no-repeat;
+    border: 2px solid #de4b39;
+    border-radius: 4px;
+    color: #de4b39;
+    padding: 6px 30px;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+    float: left;
+    margin-left: 11px;
+    text-indent: 32px;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v38/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+  }
+  
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    
+    -webkit-font-smoothing: antialiased;
+  }
+  @media screen and (max-width: 600px){
+      .ikonatFacebookTwitter{
+          width: 15px;
+          height: auto;
+      }
+      .card-title{
+          font-size: 12px;
+      }
+  }
+  

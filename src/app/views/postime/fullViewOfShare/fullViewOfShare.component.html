@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <img class="card-img-top imazhiPostimit" src="{{baseUrl}}download/{{postimi?.featuredImageUUID}}">
+    
+    <h3>{{postimi?.title }}</h3>
+    <div style="border: 1px solid lightcoral;
+    width: 100%;"></div>
+    <p [innerHTML]="postimi?.body | keepHtml"></p>
+    </div>
+    <div class="col-md-3">
+    <!--   <div class="row justify-content-md-center text-left">
+          
+          <div>
+          <a (click)="share(content?.shareableUrl, content?.uuid)" *ngIf="fblogged" style="cursor: pointer; padding: 10px;">
+              <img src="./assets/img/facebook.png" width="30" height="30" class="ikonatFacebookTwitter"></a>
+            <a (click)="openModal(template)" *ngIf="!fblogged" style="cursor: pointer; padding: 10px;">
+              <img src="assets/img/facebook.png" width="30" height="30" class="ikonatFacebookTwitter"></a>
+            <a href="https://twitter.com/intent/tweet?source=tweetbutton&text={{content?.title}}&url={{content?.shareableUrl}}" target="_blank">
+              <img src="assets/img/twitter.png" width="30" height="30" class="ikonatFacebookTwitter"> </a>
+            <a id="shareableWAPP" target="_blank" data-initiation="" style="padding: 10px;" href="https://api.whatsapp.com/send?text={{content?.title}} - {{content?.shareableUrl}}">
+              <img src="assets/img/whatsapp.png" width="30" height="30" class="ikonatFacebookTwitter"></a>
+            </div>
+      </div> -->
+    </div>
+  </div>
+</div>

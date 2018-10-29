@@ -1,0 +1,30 @@
+h4 {
+    font-weight: 400;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-size: 1.3em;
+    opacity: .8; /* Firefox */
+    color: #72777c;
+    
+}
+::ng-deep .redText {
+    color: red;
+}
+.top36{
+    margin-top: 73px;
+}
+
+.inputi {
+    opacity: .5;
+    transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
+.inputi:hover{
+    opacity: 1;
+}
+#file-input
+{
+    display: none;
+}

@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" *ngFor="let content of returnedArray">
+      <div class="card">
+        <div class="card-header">
+        <img class="card-img-left imazhiPostimit" src="{{baseUrl}}download/{{content.featuredImageUUID}}" [routerLink]="['/postime/shperndaj', content.uuid]"
+          ></div>
+        <div class="card-body">
+          <h5 class="card-title overlay-middle">{{content?.title}}</h5>
+          <p class="date"><i class="icon-clock"></i>{{content?.datetime | date: 'short'}}</p>
+          <!-- <h5 class="card-title">{{(content?.title.length>55)? (content?.title | slice:0:70)+' ...':(str)}}</h5> -->
+          <!-- <p class="card-text">{{(content?.body.length>110)? (content?.body | slice:0:110)+' ...':(str)}}</p> -->
+        </div>
+        <div class="text-right overlay">
+          <!-- Share Facebook -->
+         <!--  <a (click)="shareFacebook(content?.shareableUrl, content?.uuid)" *ngIf="fblogged" style="cursor: pointer;"> -->
+          <a (click)="shareFacebook(content?.uuid)" target="_blank" href="https://facebook.com/sharer.php?u={{content?.shareableUrl}}" *ngIf="fblogged" style="cursor: pointer;">
+            <img src="assets/img/facebook.png" class="ikonatFacebookTwitter"></a>
+          <a (click)="openModal(template)" *ngIf="!fblogged" style="cursor: pointer;">
+            <img src="assets/img/facebook.png" class="ikonatFacebookTwitter"></a>
+            <!-- Share Twitter -->
+          <a href="https://twitter.com/intent/tweet?source=tweetbutton&text={{content?.title}}&url={{content?.shareableUrl}}" (click)="shareTwitter(content?.uuid)" target="_blank">
+            <img src="assets/img/twitter.png"  class="ikonatFacebookTwitter"> </a>
+            <!-- Share Whatsapp -->
+          <a id="shareableWAPP" target="_blank" (click)="shareWhatsapp(content?.uuid)" data-initiation="" href="https://api.whatsapp.com/send?text={{content?.title}} - {{content?.shareableUrl}}">
+            <img src="assets/img/whatsapp.png"  class="ikonatFacebookTwitter"></a>
+            <!-- Like Instagram -->
+          <a id="shareableWAPP" target="_blank" (click)="likeInstagram(content?.uuid)" *ngIf="content?.instaLoveUrl != ''" data-initiation="" href="{{content?.instaLoveUrl}}">
+            <img src="assets/img/insta.png" class="ikonatFacebookTwitter"></a>
+            <!-- Like Twitter-->
+            <a id="shareableWAPP" target="_blank" (click)="likeTwitter(content?.uuid)" *ngIf="content?.twiterLoveUrl != ''" data-initiation="" href="{{content?.twiterLoveUrl}}">
+              <img src="assets/imgs/twitter-like.png" class="ikonatFacebookTwitter"></a>
+            <!-- Like Facebook -->
+          <a id="shareableWAPP" (click)="likeFacebook(content?.uuid)" target="_blank" *ngIf="content?.fbLikeUrl != ''" data-initiation="" href="{{content?.fbLikeUrl}}">
+            <img src="assets/img/fblike.png" class="ikonatFacebookTwitter"></a>
+          <!-- modali -->
+          <ng-template #template>
+            <div class="modal-header">
+              <h4 class="modal-title pull-left">FILLO</h4>
+              <button type="button" class="close pull-right" (click)="modalRef.hide()">
+                <img src="assets/img/x-button.png" alt="">
+              </button>
+            </div>
+            <div class="modal-body box-margin">
+              <a (click)="socialSignIn('facebook')" class="facebook-login-button-no-bg lowerpadding-facebook-login-btn">Lidhu
+                me Facebook</a>
+              <p class="fancy">
+                <!-- <span>ose</span> -->
+              </p>
+
+              <div class="box-margin no-account">
+                <p>Nuk keni një llogari?</p>
+                <a href="https://facebook.com">Regjistrohu Tani!</a>
+              </div>
+            </div>
+
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <pagination [boundaryLinks]="true" [totalItems]="posts?.length" (pageChanged)="pageChanged($event)" previousText="&lsaquo;"
+      nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+    </pagination>
+  </div>
+</div>
+<ngx-spinner bdColor="rgba(51,51,51,0)" size="medium" color="#ed1b24" type="ball-atom"></ngx-spinner>

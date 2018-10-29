@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" *ngFor="let content of returnedArray">
+        <div class="card" >
+          <div class="card-header">
+              <img class="card-img-right imazhiPostimit" src="{{baseUrl}}download/{{content.featuredImageUUID}}" [routerLink]="['/postime/lexo&komento', content.uuid]">
+          </div>
+          
+          <div class="card-body">
+            <h5 class="card-title overlay-middle">{{content?.title}}</h5>
+            <p class="date"><i class="icon-clock"></i>{{content?.datetime | date: 'short'}}</p>
+          </div>
+          <div class="text-right">
+            <!-- <img src="./assets/img/facebook.png" width="25" height="25" class="ikonatFacebookTwitter">
+            <img src="./assets/img/twitter.png" width="25" height="25" class="ikonatFacebookTwitter"> -->
+            <a [href]="content.shareableUrl" target="_blank"><img src="assets/img/anchor.png" width="25" height="25" class="ikonatFacebookTwitter overlay"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <pagination [boundaryLinks]="true" [totalItems]="sortedArray?.length" (pageChanged)="pageChanged($event)" previousText="&lsaquo;"
+        nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+      </pagination>
+    </div>
+  </div>
+  <ngx-spinner bdColor="rgba(51,51,51,0)" size="medium" color="#ed1b24" type="ball-atom"></ngx-spinner>

@@ -1,0 +1,147 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-9">
+      <ag-grid-angular style="width: 100%; height: 500px;" class="ag-theme-material" (rowClicked)='rowClicked($event)'
+        [rowData]="rowData" [columnDefs]="columnDefs" [enableSorting]="true" [enableFilter]="true" [getRowNodeId]="getRowNodeId"
+        [animateRows]="true" (gridReady)="onGridReady($event)">
+      </ag-grid-angular>
+    </div>
+    <div class="col-md-3">
+      <div class="card shtoUser" style="width: 18rem;">
+        <div class="card-body">
+            <form [formGroup]="registerUserForm" (ngSubmit)="register()">
+            <h6 class="card-title" style="color:#EE1B21;"><b>SHTO PËRDORUES</b></h6>
+            <br>
+            <input type="text" class="form-control inputeUser" placeholder="Username" formControlName="username">
+            <br>
+            <input type="password" class="form-control inputeUser" placeholder="Password" formControlName="password">
+            <br>
+            <hr style="border-color:red">
+            <div class="row justify-content-md-center">
+              <div class="col-md-3">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" formControlName="PS" #PS>
+                <label class="form-check-label" for="inlineCheckbox1">PS</label>
+              </div>
+              <div class="col-md-3">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" formControlName="FRESH" #FRESH>
+                <label class="form-check-label" for="inlineCheckbox2">FRESH</label>
+              </div>
+              <div class="col-md-3">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" formControlName="QEVERI" #QEVERI>
+                <label class="form-check-label" for="inlineCheckbox3">QEVERI</label>
+              </div>
+            </div>
+            <hr style="border-color:red">
+            <div class="row justify-content-md-center">
+              <div class="col-md-4">
+                <input type="radio" name="userGroup" formControlName="userGroup" [value]="'71b25880-cbb6-11e8-b9ab-0242ac110002'">Admin
+              </div>
+              <div class="col-md-7">
+                <input type="radio" name="userGroup" formControlName="userGroup" [value]="'ad6764c0-9983-11e8-85a9-0242ac110002'">Përdorues publik
+              </div>
+            </div>
+            <br>
+            <button class="btn btn-success" [disabled]="!registerUserForm.valid && (PS.checked==false && FRESH.checked==false && QEVERI.checked==false)">SHTO PËRDORUESIN</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal #deleteUser="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-child-name" class="modal-title pull-left">Jeni të sigurt?</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideDeleteUserModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <button class="btn btn-success" (click)="deleteUserSoft()">PO</button>
+        <button class="btn btn-danger" (click)="hideDeleteUserModal()">JO</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal #editUser="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-child-name" class="modal-title pull-left">Ndrysho të dhënat e përdoruesit</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideEditUserModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="name"><b>Emri i përdoruesit</b></label>
+        <input type="text" class="form-control" id="name" placeholder="Emri i përdoruesit" [(ngModel)]="specificUser.name">
+        <br>
+        <label for="username"><b>Username</b></label>
+        <input type="text" class="form-control" id="username" placeholder="Username" [(ngModel)]="specificUser.username">
+        <br>
+        <label for="email"><b>Email</b></label>
+        <input type="text" class="form-control" id="email" placeholder="Email" [(ngModel)]="specificUser.email">
+        <br>
+        <label for="tel"><b>Numër telefoni</b></label>
+        <input type="text" class="form-control" id="tel" placeholder="Numër telefoni" [(ngModel)]="specificUser.tel">
+        <br>
+        <label for="qarku"><b>Qarku</b></label>
+        <input type="text" class="form-control" id="qarku" placeholder="Qarku" [(ngModel)]="specificUser.qarku">
+        <br>
+        <label for="bashkia"><b>Bashkia</b></label>
+        <input type="text" class="form-control" id="bashkia" placeholder="Bashkia" [(ngModel)]="specificUser.bashkia">
+        <br>
+        <label for="ministria"><b>Ministria</b></label>
+        <select class="form-control" id="ministria" placeholder="Ministria" [(ngModel)]="specificUser.ministria">
+          <option [value]="'E papërcaktuar'" disabled selected>Ministria</option>
+          <option [value]="'Ministria e Financave'">Ministria e Financave</option>
+          <option [value]="'Ministria e Puneve te Jashtme'">Ministria për Evropën dhe Punët e Jashtme</option>
+          <option [value]="'Ministria e Mbrojtjes'">Ministria e Mbrojtjes</option>
+          <option [value]="'Ministria e Brendshme'">Ministria e Brendshme</option>
+          <option [value]="'Ministria e Financave dhe Ekonomise'">Ministria e Financave dhe Ekonomisë</option>
+          <option [value]="'Ministria e Infrastruktures'">Ministria e Infrastrukturës dhe Energjisë</option>
+          <option [value]="'Ministria E Arsimit'">Ministria e Arsimit, Sportit dhe Rinisë</option>
+          <option [value]="'Ministria e Drejtesise'">Ministria e Drejtësisë</option>
+          <option [value]="'Ministria e Kultures'">Ministria e Kulturës</option>
+          <option [value]="'Ministria Bujqesise dhe Zhvillimit Rural'">Ministria e Bujqësisë dhe Zhvillimit Rural</option>
+          <option [value]="'Ministria e Shendetesise'">Ministria e Shëndetësisë dhe Mbrojtjes Sociale</option>
+          <option [value]="'Ministria e Turizmit dhe Mjedisit'">Ministria e Turizmit dhe Mjedisit</option>
+          <option [value]="'Ministria e Shtetit për Diasporën'">Ministria e Shtetit për Diasporën</option>
+          <option [value]="'Ministria e Shtetit për Mbrojtjen e Sipërmarrjes'">Ministria e Shtetit për Mbrojtjen e Sipërmarrjes</option>
+        </select>
+        <br>
+        <hr>
+        <div class="row justify-content-md-center">
+            <div class="col-md-3">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" [(ngModel)]="PS1">
+              <label class="form-check-label" for="inlineCheckbox1">PS</label>
+            </div>
+            <div class="col-md-3">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" [(ngModel)]="FRESH1">
+              <label class="form-check-label" for="inlineCheckbox2">FRESH</label>
+            </div>
+            <div class="col-md-3">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" [(ngModel)]="QEVERI1">
+              <label class="form-check-label" for="inlineCheckbox3">QEVERI</label>
+            </div>
+          </div>
+          <hr>
+          <div class="row justify-content-md-center">
+              <div class="col-md-3">
+                <input type="radio" name="userGroup" [(ngModel)]="userGroup1" [value]="'cbe35d50-c6f6-11e8-85a9-0242ac110002'">Admin
+              </div>
+              <div class="col-md-5">
+                <input type="radio" name="userGroup" [(ngModel)]="userGroup1" [value]="'ad6764c0-9983-11e8-85a9-0242ac110002'">Përdorues publik
+              </div>
+          </div>
+          <br>
+        <button class="btn btn-success" (click)="saveSpecificUser()">Ruaj</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner  bdColor="rgba(51,51,51,0)" size="medium" color="#ed1b24" type="ball-atom"></ngx-spinner>
